@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 
 const AddEmployee = () => {
-    const backendUrl = 'https://jsonplaceholder.typicode.com/users';
-    const [empData, setEmpData] = useState({ firstName: '', email: '', aadhaar: '', salary: '' });
+    const backendUrl = 'http://localhost:9099/emp/add-emp';
+    const [empData, setEmpData] = useState({ firstName: '', email: '', aadhaar: '', salary: ''});
     const [errors, setErrors] = useState({});
 
     const handleChange = (evt) => {
@@ -45,7 +45,7 @@ const AddEmployee = () => {
             axios.post(backendUrl, empData)
                 .then((resp) => {
                     alert(`${resp.data.firstName} with id ${resp.data.id} added successfully!`);
-                    setEmpData({ firstName: '', email: '', aadhaar: '', salary: '' });
+                    setEmpData({ firstName: '', email: '', aadhaar: '', salary: ''});
                 })
                 .catch(error => {
                     console.error("Error adding employee:", error);
@@ -54,32 +54,35 @@ const AddEmployee = () => {
     };
 
     return (
-        <>
-            <h1>Add Employee Component</h1>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
+            <div style={{ width: '1000px', padding: '20px', border: '1px solid #ccc', borderRadius: '5px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)' }}>    
+            <h1 style={{ textAlign:"centre" }}>Add Employee</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" value={empData.firstName} onChange={handleChange} placeholder="Enter first name" required autoFocus />
-                {errors.firstName && <span className="error">{errors.firstName}</span>}
-                <br />
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" value={empData.email} onChange={handleChange} placeholder="Enter email" />
-                {errors.email && <span className="error">{errors.email}</span>}
-                <br />
-                <label htmlFor="aadhaar">Aadhaar:</label>
-                <input type="number" id="aadhaar" name="aadhaar" value={empData.aadhaar} onChange={handleChange} placeholder="Enter aadhaar" />
-                {errors.aadhaar && <span className="error">{errors.aadhaar}</span>}
-                <br />
-                <label htmlFor="salary">Salary:</label>
-                <input type="number" id="salary" name="salary" value={empData.salary} onChange={handleChange} placeholder="Enter salary" />
-                {errors.salary && <span className="error">{errors.salary}</span>}
-                <br />
-                <input type="submit" value="Add Employee" />
-            </form>
-        </>
+                    <label htmlFor="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" value={empData.firstName} onChange={handleChange} placeholder="Enter first name" required autoFocus style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '3px', border: '1px solid #ccc' }} />
+                    {errors.firstName && <span className="error">{errors.firstName}</span>}
+                    <br />
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" id="email" name="email" value={empData.email} onChange={handleChange} placeholder="Enter email" style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '3px', border: '1px solid #ccc' }} />
+                    {errors.email && <span className="error">{errors.email}</span>}
+                    <br />
+                    <label htmlFor="aadhaar">Aadhaar:</label>
+                    <input type="number" id="aadhaar" name="aadhaar" value={empData.aadhaar} onChange={handleChange} placeholder="Enter aadhaar" style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '3px', border: '1px solid #ccc' }} />
+                    {errors.aadhaar && <span className="error">{errors.aadhaar}</span>}
+                    <br />
+                    <label htmlFor="salary">Salary:</label>
+                    <input type="number" id="salary" name="salary" value={empData.salary} onChange={handleChange} placeholder="Enter salary" style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '3px', border: '1px solid #ccc' }} />
+                    {errors.salary && <span className="error">{errors.salary}</span>}
+                    <br />
+                    <input type="submit" value="Add Employee" style={{ width: '100%', padding: '10px', borderRadius: '3px', border: 'none', backgroundColor: '#007bff', color: '#fff', cursor: 'pointer' }} />
+                </form>
+            </div>
+        </div>
     );
 };
 
 export default AddEmployee;
+
 
 // import axios from "axios";
 // import { useState } from "react";

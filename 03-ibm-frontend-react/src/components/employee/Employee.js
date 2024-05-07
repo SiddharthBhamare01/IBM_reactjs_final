@@ -1,5 +1,6 @@
 import AddEmployee from "./AddEmployee";
 import EmpList from "./EmpList";
+import DelEmployee from "./DelEmployee"
 
 const Employee = () => {
 
@@ -18,6 +19,8 @@ const Employee = () => {
 
             <AddEmployee />
             <EmpList />
+            {/* <DelEmployee/> */}
+
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const EmpList = () => {
 
     const [empList, setEmpList] = useState('');
-    const url = 'http://localhost:9099';
+    //const url = 'http://localhost:9099';
 
     useEffect(() => {
         console.log('useEffect');
@@ -18,15 +18,18 @@ const EmpList = () => {
 
     return (
         <>
-            <h1>EmpList Component</h1>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh' }}>
+        <h1 style={{ textAlign: 'center' }}>EmpList Component</h1>
+        </div>
+
             <table style={{ border: '1px solid #ccc', borderCollapse: 'collapse', width: '100%' }}>
                 <thead>
-                    <th>Name</th> <th>Username</th> <th>Email</th> <th>salary</th> <th>Actions</th>
+                    <th>Adhaar No.</th> <th>Firstname</th> <th>Email</th> <th>Salary</th> <th>Actions</th>
                 </thead>
                 <tbody>
                     {empList && empList.map((emp,index) =>
                         <tr key={emp.id} style={{ backgroundColor: index % 2 === 0 ? '#393e46' : '#222831' }}>
-                            <td >{emp.userName} </td>
+                            <td >{emp.aadhaar} </td>
                             <td >{emp.firstName} </td>
                             <td >{emp.email} </td>
                             <td >{emp.salary} </td>
