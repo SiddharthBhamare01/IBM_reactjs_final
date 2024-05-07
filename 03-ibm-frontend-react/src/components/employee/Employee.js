@@ -19,7 +19,7 @@ const Employee = () => {
 
             <AddEmployee />
             <EmpList />
-            {/* <DelEmployee/> */}
+            <DelEmployee/>
 
         </div>
     );

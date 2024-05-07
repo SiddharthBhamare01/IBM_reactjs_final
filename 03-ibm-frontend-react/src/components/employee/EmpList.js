@@ -18,7 +18,7 @@ const EmpList = () => {
 
     return (
         <>
-        <div style={{ display: 'flex',justifyContent: 'center', alignItems: 'center', height: '10vh' }}>
+        <div style={{ display: 'flex',justifyContent: 'center', alignItems: 'center', height: '15vh' }}>
         <h1 style={{ textAlign: 'center' }}>EmpList Component</h1>
         </div>
 
