@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const DeleteEmployee = () => {
+const DelEmployee = () => {
     const [employeeId, setEmployeeId] = useState('');
     const [error, setError] = useState('');
 
@@ -10,7 +10,7 @@ const DeleteEmployee = () => {
         setError('');
     };
 
-    const handleDelete = () => {
+    const handleDelete = (employeeId) => {
         const deleteUrl = `http://localhost:9099/emp/delete-emp/${employeeId}`;
         axios.delete(deleteUrl)
             .then(() => {
@@ -23,17 +23,17 @@ const DeleteEmployee = () => {
             });
     };
 
-    return (
-        <div className="container mt-5">
-            <h1 className="mb-4">Delete Employee</h1>
-            <div className="mb-3">
-                <label htmlFor="employeeId" className="form-label">Employee ID:</label>
-                <input type="text" id="employeeId" value={employeeId} onChange={handleChange} className="form-control" placeholder="Enter employee ID" required />
-            </div>
-            {error && <div className="alert alert-danger">{error}</div>}
-            <button type="button" onClick={handleDelete} className="btn btn-danger">Delete Employee</button>
-        </div>
-    );
+    // return (
+    //     <div className="container mt-5">
+    //         <h1 className="mb-4">Delete Employee</h1>
+    //         <div className="mb-3">
+    //             <label htmlFor="employeeId" className="form-label">Employee ID:</label>
+    //             <input type="text" id="employeeId" value={employeeId} onChange={handleChange} className="form-control" placeholder="Enter employee ID" required />
+    //         </div>
+    //         {error && <div className="alert alert-danger">{error}</div>}
+    //         <button type="button" onClick={handleDelete} className="btn btn-danger">Delete Employee</button>
+    //     </div>
+    // );
 };
 
-export default DeleteEmployee;
+export default DelEmployee;
