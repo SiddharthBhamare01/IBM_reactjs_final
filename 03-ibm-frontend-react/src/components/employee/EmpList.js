@@ -43,7 +43,7 @@ const EmpList = () => {
         axios
           .delete(deleteUrl)
           .then(() => {
-            const updatedEmpList = empList.filter((emp) => emp.emploeeId !== id);
+            const updatedEmpList = empList.filter((emp) => emp.employeeId !== id);
             alert(`Employee with id ${id} deleted successfully!`);
             //setEmployeeId('');
             setEmpList(updatedEmpList);
@@ -67,8 +67,8 @@ const EmpList = () => {
         setErrors({ ...errors, [evt.target.name]: "" });
       };
       const handleSubmit = (evt) => {
-        evt.preventDefault();
-        //console.log(updateData)
+        evt.preventDefault()
+        console.log(updateData)
         // console.log(updateData.id);
         const updateUrl = `http://localhost:9099/emp/update-emp/${updateData.employeeId}`;
         axios
@@ -78,7 +78,7 @@ const EmpList = () => {
                     `${resp.data.firstName} with id ${resp.data.emp} updated successfully!`
                 );
                 const updatedEmpList = empList.map((emp) =>
-                    emp.id === resp.data.id ? resp.data : emp
+                    emp.id === resp.data.employeeId ? resp.data : emp
                 );
                 setEmpList(updatedEmpList);
                 setShowUpdateModal(false);
